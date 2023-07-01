@@ -18,3 +18,16 @@ Route::get("/", [TinController::class, "index"]);
 Route::get("/lien-he", [TinController::class, "lienhe"]);
 Route::get("/ct/{id}", [TinController::class, "lay1tin"]);
 Route::get("/gt", [GTcontroller::class, "index"]);
+Route::get("/data", function () {
+    $query = DB::table("users")->select("id", "name");
+    $kq = $query->get();
+    foreach ($kq as $row) {
+
+        echo $row->id . " - " . $row->name . "<br>";
+    }
+});;
+Route::get("/trangchu", function(){
+    $query = DB::table("users")->select("id", "name");
+    $kq = $query->get();
+    return view("index",["data" => $kq]);
+});
