@@ -11,15 +11,14 @@
 
 @extends('layout.master')
 @section('content')
-
     <ul>
-
         <li>
             @foreach($data as $user)
             <li>{{$user->name}} - ID: {{$user->id}}</li>
             @endforeach
         </li>
     </ul>
+    
 </body>
 </html>
 @endsection<h1>Đây Là trang chủ</h1>
